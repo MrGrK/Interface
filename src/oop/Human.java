@@ -1,7 +1,5 @@
 package oop;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import org.omg.CORBA.INTERNAL;
 
 public class Human implements ISkills{
 
@@ -16,31 +14,15 @@ public class Human implements ISkills{
     }
 
     @Override
-    public void run(int pDist) {
+    public boolean run(int pDist) {
         System.out.println((pDist<runDistance)?"Человек пробежал дистанцию " +pDist:"Человек не пробежал дистанцию " + pDist);
-
+        return pDist < runDistance;
     }
 
     @Override
-    public void jump(int pDist) {
+    public boolean jump(int pDist) {
         System.out.println((pDist<jumpDistance)?"Человек перепрыгнул стену высотой "+pDist:"Человек не перепрыгнул стену высотой "+pDist);
-
+        return pDist < jumpDistance;
     }
-    @Override
-    public boolean getObstacle(IObstacle pObstacle){
-        if(pObstacle instanceof Wall)
-        {
-            jump(((Wall) pObstacle).getHeight());
-            return ((Wall) pObstacle).getHeight() < jumpDistance;
-        }
-        else if(pObstacle instanceof Treadmill)
-        {
-            run(((Treadmill) pObstacle).getDistance());
-            return ((Treadmill) pObstacle).getDistance() < runDistance;
-        }
-        else return false;
-
-    }
-
 
 }

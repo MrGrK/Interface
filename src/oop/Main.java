@@ -19,7 +19,7 @@ public class Main {
     private static void testTeam(ISkills[] xTeamArr, IObstacle[] xObstArr) {
         for (ISkills player: xTeamArr) {
             for (IObstacle obst: xObstArr) {
-                if(!player.getObstacle(obst))
+                if(!obst.overcome(player))
                     break;
             }
         }

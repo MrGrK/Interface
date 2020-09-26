@@ -14,30 +14,15 @@ public class Cat implements ISkills {
     }
 
     @Override
-    public void run(int pDist) {
+    public boolean run(int pDist) {
         System.out.println((pDist<runDistance)?"Кот пробежал дистанцию " +pDist:"Кот не пробежал дистанцию " + pDist);
-
+        return pDist<runDistance;
     }
 
     @Override
-    public void jump(int pDist) {
+    public boolean jump(int pDist) {
         System.out.println((pDist<jumpDistance)?"Кот перепрыгнул стену высотой "+pDist:"Кот не перепрыгнул стену высотой "+pDist);
-
-    }
-    @Override
-    public boolean getObstacle(IObstacle pObstacle){
-        if(pObstacle instanceof Wall)
-        {
-            jump(((Wall) pObstacle).getHeight());
-            return ((Wall) pObstacle).getHeight() < jumpDistance;
-        }
-        else if(pObstacle instanceof Treadmill)
-        {
-            run(((Treadmill) pObstacle).getDistance());
-            return ((Treadmill) pObstacle).getDistance() < runDistance;
-        }
-        else return false;
-
+        return pDist < jumpDistance;
     }
 
 }

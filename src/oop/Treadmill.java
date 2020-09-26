@@ -7,8 +7,9 @@ public class Treadmill implements IObstacle {
         distance = pDist;
     }
 
-    public int getDistance() {
-        return distance;
+    @Override
+    public boolean overcome(ISkills pSillable) {
+       return pSillable.run(distance);
     }
 }
 

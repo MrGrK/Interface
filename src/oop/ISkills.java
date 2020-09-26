@@ -2,9 +2,8 @@ package oop;
 
 public interface ISkills {
 
-     void run(int pDist);
+     boolean run(int pDist);
 
-     void jump(int pDist);
+     boolean jump(int pDist);
 
-     boolean getObstacle(IObstacle pObstacle);
 }

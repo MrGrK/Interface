@@ -7,7 +7,8 @@ public class Wall implements IObstacle {
         height = pHeight;
     }
 
-    public int getHeight() {
-        return height;
+    @Override
+    public boolean overcome(ISkills pSillable) {
+        return pSillable.jump(height);
     }
 }
